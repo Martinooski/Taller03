@@ -64,4 +64,3 @@ public abstract class Hechizo {
 	public abstract double calcularPuntaje();
 
 }
-
