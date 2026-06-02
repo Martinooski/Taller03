@@ -15,6 +15,7 @@ public class Main {
 		
 		do {
 		    Menu.mostrarMenuInicial();
+		    System.out.println();
 		    opcion = scanner.nextLine();
 		    
 		    switch (opcion) {
@@ -40,6 +41,7 @@ public class Main {
 		String opcion = "";
 		do {
 			Menu.mostrarMenuAdministrador();
+			System.out.println();
 		    opcion = scanner.nextLine();
 		    switch (opcion) {
 		        case "1":
@@ -76,7 +78,8 @@ public class Main {
 		
 		String opcion = "";
 		do {
-			Menu.mostrarMenuAnalista(); 
+			Menu.mostrarMenuAnalista();
+			System.out.println();
 		    opcion = scanner.nextLine();
 		    switch (opcion) {
 		        case "1":
@@ -95,7 +98,9 @@ public class Main {
 		        	sistema.mostrarHechizosYPuntaje();
 		            break;
 		        case "6":
-		            //mostrar magos + puntuacion
+		            System.out.println("Top 10 mejores Magos : ");
+		            sistema.ordenamientoBurbujaMagos();
+		            sistema.mostrarTop10();
 		            break;
 		        case "7":
 		            //salir
