@@ -55,5 +55,44 @@ public class Lector {
 	    
 	    return listaHechizos;
 	}
-
+	
+	
+	public ArrayList<Mago> leerMagos(ArrayList<Hechizo> listaHechizos) {
+		
+		ArrayList<Mago> listaMagos = new ArrayList<>();
+		
+		try {
+			
+			Scanner scanner = new Scanner(new File("Magos.txt"));
+			
+			while (scanner.hasNextLine()) {
+				
+				String linea = scanner.nextLine();
+				String[] partes = linea.split(";");
+				String nombreMago = partes[0].trim();
+				String[] hechizosMago = partes[1].split("\\|");
+				
+				Mago mago = new Mago(nombreMago);
+				
+				for (int i = 0; i < hechizosMago.length; i++) {
+				    String nombreHechizoMago = hechizosMago[i].trim();
+				    
+				    for (int j = 0; j < listaHechizos.size(); j++) {
+				    	if (nombreHechizoMago.equals(listaHechizos.get(j).getNombrehechizo())) {
+				    	    mago.agregarHechizo(listaHechizos.get(j));
+				    	    break;
+				    	}
+				    }
+				}
+				listaMagos.add(mago);
+				
+			}
+			scanner.close();
+			
+		} catch (FileNotFoundException e) {
+			System.out.println("Error: " + e.getMessage());
+		}
+		
+		return listaMagos;
+	}
 }
