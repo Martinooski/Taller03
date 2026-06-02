@@ -1,7 +1,7 @@
 package taller03;
 
 
-public abstract class Hechizo {
+public abstract class Hechizo implements Puntaje {
 	
 	private String nombrehechizo;
 	private String tipo;
@@ -57,10 +57,16 @@ public abstract class Hechizo {
 	public void setDaño(int daño) {
 		this.daño = daño;
 	}
-
-
+	
 
 
 	public abstract double calcularPuntaje();
 
+
+
+
+	public String toStringSimple() {
+	    return nombrehechizo + " | " + tipo + " | Daño: " + daño;
+	}
 }
+
